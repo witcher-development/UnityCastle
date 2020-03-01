@@ -1,0 +1,19 @@
+﻿Non-solid tiles
+
+Plains
+    Tile Coords: -8 0 0
+    
+Sand
+    Tile Coords: -8 1 0
+   
+   
+--------------------------    
+Solid tiles
+
+Forest
+    Tile Coords: -9 0 0
+    
+Rock
+    Tile Coords: -7 1 0
+    
+
