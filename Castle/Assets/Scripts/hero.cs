@@ -5,11 +5,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class hero : MonoBehaviour
+public class Hero : MonoBehaviour
 {
     //public GameObject castle;
 
-
+    public string Log()
+    {
+        return "it is a test string1";
+    }
 
 
 

@@ -11,7 +11,7 @@ public class Generator : MonoBehaviour
 {
     public int size;
     public Tilemap back;
-    public Tilemap solid;
+    private Tilemap solid;
 
     public class Map
     {
@@ -30,22 +30,17 @@ public class Generator : MonoBehaviour
                 {
                     case 's':
                         return new Vector3Int(-9, 1, 0);
-                        break;
                     case 'p':
                         return new Vector3Int(-8, 0, 0);
-                        break;
                     case 'f':
                         return new Vector3Int(-9, 2, 0);
-                        break;
                     case 'i':
                         return new Vector3Int(-8, -3, 0);
-                        break;
                     default:
                         return new Vector3Int(-7, 2, 0);
-                        break;
                 }
             }
-            else return new Vector3Int(-7, 2, 0);
+            return new Vector3Int(-7, 2, 0);
         }
 
         public Vector3Int GetNewSolidTileCoordinates(int x, int y)
@@ -56,22 +51,17 @@ public class Generator : MonoBehaviour
                 {
                     case 'r':
                         return new Vector3Int(-7, 1, 0);
-                        break;
                     case 'p':
                         return new Vector3Int(-8, 0, 0);
-                        break;
                     case 'f':
                         return new Vector3Int(-9, 2, 0);
-                        break;
                     case 'i':
                         return new Vector3Int(-8, -3, 0);
-                        break;
                     default:
                         return new Vector3Int(-7, 2, 0);
-                        break;
                 }
             }
-            else return new Vector3Int(-7, 2, 0);
+            return new Vector3Int(-7, 2, 0);
         }
 
         public void DrawMapByCenter(Vector2Int center)
@@ -81,7 +71,9 @@ public class Generator : MonoBehaviour
             {
                 for (int j = -3; j < 3; j++)
                 {
-                    TileBase tile = backgroundTileMap.GetTile(GetNewTileCoordinates(absoluteCoordinates.x + i, absoluteCoordinates.y + j));
+                    TileBase tile =
+                        backgroundTileMap.GetTile(GetNewTileCoordinates(absoluteCoordinates.x + i,
+                            absoluteCoordinates.y + j));
                     backgroundTileMap.SetTile(new Vector3Int(i, j, 0), tile);
                 }
             }
@@ -90,7 +82,9 @@ public class Generator : MonoBehaviour
             {
                 for (int j = -3; j < 3; j++)
                 {
-                    TileBase tile = solidTilemap.GetTile(GetNewSolidTileCoordinates(absoluteCoordinates.x + i, absoluteCoordinates.y + j));
+                    TileBase tile =
+                        solidTilemap.GetTile(GetNewSolidTileCoordinates(absoluteCoordinates.x + i,
+                            absoluteCoordinates.y + j));
                     solidTilemap.SetTile(new Vector3Int(i, j, 1), tile);
                 }
             }
@@ -164,6 +158,7 @@ public class Generator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        solid = GameObject.Find("UpperLayer").GetComponent<Tilemap>();
         gameMap = new Map(size, back, solid);
         gameMap.Fill();
         gameMap.DrawMapByCenter(gameMap.GetCoords());

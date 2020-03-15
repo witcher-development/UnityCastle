@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameEvents : MonoBehaviour
 {
 
-    public hero h;
+    public Hero h;
     public GridLayout gridLayout;
     public Generator map;
     private Vector2 targetPos;
