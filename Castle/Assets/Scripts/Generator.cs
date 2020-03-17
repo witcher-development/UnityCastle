@@ -138,6 +138,7 @@ public class Generator : MonoBehaviour
                     {
                         solidTiles[i, j] = 'r';
                     }
+                    else solidTiles[i, j] = 'n';
                 }
             }
 
@@ -156,6 +157,16 @@ public class Generator : MonoBehaviour
             backgroundTileMap = b;
             solidTilemap = solid;
             size = s;
+        }
+
+        public char[,] GetSolidMap()
+        {
+            return solidTiles;
+        }
+
+        public int GetSize()
+        {
+            return size;
         }
     }
 
