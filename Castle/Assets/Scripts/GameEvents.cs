@@ -6,7 +6,8 @@ using UnityEngine;
 public class GameEvents : MonoBehaviour
 {
 
-    public Hero h;
+    private DiController _di;
+    public Hero hero;
     public GridLayout gridLayout;
     public Generator map;
     private Vector2 targetPos;
@@ -14,7 +15,9 @@ public class GameEvents : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _di = new DiController();
+        hero = _di.Get<Hero>();
+        map = _di.Get<Generator>();
     }
 
 

@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 
 public class Generator : MonoBehaviour
 {
+    private DiController _di;
     public int size;
     public Tilemap back;
     private Tilemap solid;
@@ -158,7 +159,8 @@ public class Generator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        solid = GameObject.Find("UpperLayer").GetComponent<Tilemap>();
+        _di = new DiController();
+        solid = _di.Get<Tilemap>();
         gameMap = new Map(size, back, solid);
         gameMap.Fill();
         gameMap.DrawMapByCenter(gameMap.GetCoords());
